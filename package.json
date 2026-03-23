@@ -1,0 +1,12 @@
+{
+  "name": "kisan-agro-chemicals",
+  "version": "1.0.0",
+  "description": "Kisan Agro Chemicals Website with Admin Panel and Product Management",
+  "main": "index.js",
+  "scripts": {
+    "start": "echo \"Run project using XAMPP (Apache + MySQL)\"",
+    "dev": "echo \"No dev server needed for PHP project\""
+  },
+  "author": "Dhrumil Makvana",
+  "license": "ISC"
+}

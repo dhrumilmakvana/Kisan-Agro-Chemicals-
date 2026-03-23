@@ -1,0 +1,100 @@
+<?php include("config/db.php"); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisan Agro Chemicals - Your Trusted Shop Since 1989</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo">
+            <h1>Kisan Agro Chemicals</h1>
+            <p class="tagline">Your Trusted Shop Since 1989</p>
+        </div>
+        <nav>
+            <ul>
+                <!-- 👇 changed .html to .php -->
+                <li><a href="index.php" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <!-- HERO SECTION (same as yours) -->
+    <section class="hero">
+        <div class="container">
+            <h2>Welcome to Our Shop</h2>
+            <p>Quality products and exceptional service for all your needs</p>
+            <a href="contact.php" class="btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION (same as yours) -->
+     <section class="features">
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Quality Products</h3>
+                    <p>We offer only the best quality products for our customers</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Expert Service</h3>
+                    <p>Our experienced team is here to help you find what you need</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Customer First</h3>
+                    <p>Your satisfaction is our top priority</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔥 NEW: PRODUCT SECTION (DYNAMIC) -->
+    <section class="products">
+        <div class="container">
+            <h2>Our Products</h2>
+
+            <div class="product-grid">
+
+                <?php
+                $result = $conn->query("SELECT * FROM products");
+
+                if($result && $result->num_rows > 0){
+                    while($row = $result->fetch_assoc()){
+                ?>
+                        <div class="product-card">
+                            <img src="images/<?php echo $row['image']; ?>" width="150">
+                            <h3><?php echo $row['name']; ?></h3>
+                            <p>₹<?php echo $row['price']; ?></p>
+                            <p><?php echo $row['description']; ?></p>
+                        </div>
+                <?php
+                    }
+                } else {
+                    echo "<p>No products available</p>";
+                }
+                ?>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Kisan Agro Chemicals. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
