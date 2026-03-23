@@ -24,7 +24,6 @@ The website is designed with a clean and user-friendly interface, making it acce
 - 🏢 About Us section  
 - 📷 Image gallery  
 - 📞 Contact page  
-- 🔐 Admin panel (if implemented)  
 - 📱 Fully responsive design  
 
 ---
